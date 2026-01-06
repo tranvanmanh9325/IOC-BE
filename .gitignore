@@ -1,0 +1,77 @@
+# --- Java Compiled Files (File đã biên dịch) ---
+*.class
+*.log
+*.ctxt
+
+# --- Mobile Tools for Java (J2ME) ---
+.mtj.tmp/
+
+# --- Package Files (File đóng gói) ---
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# --- Virtual Machine Crash Logs ---
+hs_err_pid*
+
+# --- MAVEN (Công cụ build phổ biến) ---
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.properties
+
+# --- GRADLE (Công cụ build phổ biến khác) ---
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# --- IDE: INTELLIJ IDEA ---
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# --- IDE: ECLIPSE ---
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+.project
+.classpath
+
+# --- IDE: VISUAL STUDIO CODE ---
+.vscode/
+*.code-workspace
+.history/
+
+# --- HỆ ĐIỀU HÀNH (Mac/Windows/Linux) ---
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# --- ENVIRONMENT VARIABLES (Rất quan trọng để bảo mật) ---
+.env
