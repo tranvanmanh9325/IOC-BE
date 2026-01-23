@@ -1,34 +1,29 @@
 package Bai04;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Bai04 {
-    static void main(String[] args) {
-        // 1. Khai báo các biến kiểu float theo yêu cầu
-        float width, height;
-        float area, perimeter;
 
-        // Tạo đối tượng Scanner để nhập dữ liệu
+    public static void main(String[] args) {
+        // Tạp scanner
         Scanner scanner = new Scanner(System.in);
+        scanner.useLocale(Locale.US);
 
-        // 2. Nhập dữ liệu từ bàn phím
-        System.out.print("Nhập chiều rộng (width): ");
-        width = scanner.nextFloat();
+        // Nhập chiều dài hình chữ nhật
+        System.out.print("Nhập chiều dài hình chữ nhật: ");
+        float width = scanner.nextFloat();
 
-        System.out.print("Nhập chiều cao (height): ");
-        height = scanner.nextFloat();
+        // Nhập chiều rộng hình chữ nhật
+        System.out.print("Nhập chiều rộng hình chữ nhật: ");
+        float height = scanner.nextFloat();
 
-        // 3. Tính diện tích và chu vi
-        // Công thức: Diện tích = chiều rộng * chiều cao
-        area = width * height;
+        float dien_tich = width * height;
+        float chu_vi = (width + height) * 2;
 
-        // Công thức: Chu vi = 2 * (chiều rộng + chiều cao)
-        perimeter = 2 * (width + height);
-
-        // 4. In kết quả ra màn hình
-        // Sử dụng printf và %.2f để làm tròn 2 chữ số thập phân như đề bài (7.00, 11.00)
-        System.out.printf("Diện tích : %.2f\n", area);
-        System.out.printf("Chu vi : %.2f\n", perimeter);
+        // In ra màn hình
+        System.out.printf(Locale.US, "Diện tích: %.2f \n",  dien_tich);
+        System.out.printf(Locale.US, "Chu vi: %.2f",   chu_vi );
 
         // Đóng scanner
         scanner.close();

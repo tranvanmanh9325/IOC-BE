@@ -42,7 +42,7 @@ void main() {
     int pha_du = phan_du(firstNumber, secondNumber);
 
     // In kết quả
-    System.out.print("\n\n");
+    System.out.print("\n");
     System.out.println("--- Kết quả ---");
     System.out.println("firstNumber: " + firstNumber);
     System.out.println("secondNumber: " + secondNumber);
