@@ -2,16 +2,14 @@ import java.util.Scanner;
 
 public class Bai02 {
     public static void main(String[] args) {
-        // Tạo đối tượng Scanner để nhập dữ liệu từ bàn phím
+        // Tạo scanner
         Scanner scanner = new Scanner(System.in);
 
-        // Yêu cầu người dùng nhập vào số tháng
-        System.out.print("Nhập vào một số nguyên (1-12): ");
-        int month = scanner.nextInt();
+        // Yêu cầu người dùng nhập một số nguyên từ 1 đến 12 (tương ứng với tháng)
+        System.out.print("Nhập một số nguyên từ 1 đến 12 (tương ứng với tháng): ");
+        int thang =  scanner.nextInt();
 
-        // Sử dụng cấu trúc switch-case để kiểm tra tháng
-        switch (month) {
-            // Các tháng có 31 ngày
+        switch(thang){
             case 1:
             case 3:
             case 5:
@@ -19,26 +17,18 @@ public class Bai02 {
             case 8:
             case 10:
             case 12:
-                System.out.println("Tháng " + month + " có 31 ngày.");
+                System.out.print("Tháng " + thang + " có 31 ngày.");
                 break;
-
-            // Các tháng có 30 ngày
             case 4:
             case 6:
             case 9:
             case 11:
-                System.out.println("Tháng " + month + " có 30 ngày.");
+                System.out.print("Tháng " + thang + " có 30 ngày.");
                 break;
-
-            // Tháng 2 đặc biệt
             case 2:
-                System.out.println("Tháng " + month + " có 28 hoặc 29 ngày.");
-                break;
-
-            // Trường hợp không hợp lệ (nhập số ngoài khoảng 1-12)
+                System.out.print("Tháng 2 có 28 hoặc 29 ngày.");
             default:
-                System.out.println("Tháng không hợp lệ.");
-                break;
+                System.out.print("Tháng không hợp lệ.");
         }
 
         // Đóng scanner
