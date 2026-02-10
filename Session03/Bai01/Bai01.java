@@ -1,64 +1,63 @@
 package Bai01;
 
 import java.text.DecimalFormat;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Bai01 {
-
-    // Hàm tính tổng tiền
-    public static double tong_tien (double gia_san_pham, int so_luong_mua, boolean the_thanh_vien) {
-        double tong_tien_chua_VAT = gia_san_pham *  (double) so_luong_mua;
-        if (the_thanh_vien) {
-            return tong_tien_chua_VAT * (1 - 0.1) + tong_tien_chua_VAT * 0.08;
-        }
-        else  {
-            return tong_tien_chua_VAT +  tong_tien_chua_VAT * 0.08;
-        }
+    // Hàm tính tổng tiền thanh toán
+    public static long tongTien (long thanhTien, long giamThanhVien) {
+        return (thanhTien - giamThanhVien + thanhTien * 8 / 100);
     }
 
     public static void main(String[] args) {
         // Tạo scanner
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
+        scanner.useLocale(Locale.US);
 
-        System.out.println("========= NHẬP THÔNG TIN HÓA ĐƠN =========");
+        // Nhập thông tin
+        System.out.println("==================== Nhập thông tin ======================");
 
-        // Nhập tên khách hàng
-        System.out.println("Nhập tên khách hàng: ");
-        String ten_khach_hang = sc.nextLine();
+        System.out.print("Nhập tên khách hàng: ");
+        String khachHang =  scanner.nextLine();
 
-        // Nhập tên sản phẩm
-        System.out.println("Nhập tên sản phẩm: ");
-        String san_pham = sc.nextLine();
+        System.out.print("Nhập tên sản phẩm: ");
+        String sanPham = scanner.nextLine();
 
-        // Nhập giá sản phẩm
-        System.out.println("Nhập giá sản phẩm: ");
-        double gia_san_pham = sc.nextInt();
+        System.out.print("Nhập giá sản phẩm: ");
+        long gia =  scanner.nextLong();
 
-        // Nhập số lượng mua
-        System.out.println("Nhập số lượng mua: ");
-        int so_luong_mua = sc.nextInt();
+        System.out.print("Nhập số lượng mua: ");
+        int soLuong = scanner.nextInt();
 
-        // Khách có thẻ thành viên?
-        System.out.println("Khách có thẻ thành viên: ");
-        boolean the_thanh_vien = sc.nextBoolean();
+        System.out.print("Khách hàng có thẻ thành viên hay không: ");
+        boolean theThanhVien = scanner.nextBoolean();
 
-        // Hàm tính tổng tiền
-        double tong_tien_thanh_toan = tong_tien(gia_san_pham, so_luong_mua, the_thanh_vien);
+        // Xử lý
+        long thanhTien = gia * (long)soLuong;
+        long giamThanhVien;
+        if (theThanhVien) {
+            giamThanhVien = thanhTien * 10 / 100;
+        } else {
+            giamThanhVien = 0;
+        }
+        long tongTien = tongTien(thanhTien, giamThanhVien);
 
         // Format lại số trước khi hiển thị
-        DecimalFormat decimalFormat = new DecimalFormat("#,###.00");
+        DecimalFormat decimalFormat = new DecimalFormat("#,###");
 
-        // In kết quả ra màn hình
-        System.out.println("================ HÓA ĐƠN ================");
-        System.out.println("Khách hàng: " + ten_khach_hang);
-        System.out.println("Sản phẩm: " + san_pham);
-        System.out.println("Số lượng: " + so_luong_mua);
-        System.out.println("Đơn giá: " +  decimalFormat.format(gia_san_pham) + "VND");
-        System.out.println("Thành tiền: " +  decimalFormat.format(gia_san_pham * (double) so_luong_mua) + "VND");
-        System.out.println("Giảm giá thành viên: " +  decimalFormat.format(gia_san_pham * (double) so_luong_mua * 0.1));
-        System.out.println("Tiền VAT (8%): " + decimalFormat.format(gia_san_pham * (double) so_luong_mua * 0.08) + "VND");
-        System.out.println("Tổng thanh toán: " + decimalFormat.format(tong_tien_thanh_toan) + "VND");
+        // In thông tin
+        System.out.println("==================== Hóa đơn ======================");
 
-        sc.close();
+        System.out.println("Khách hàng: " + khachHang);
+        System.out.println("Sản phẩm: " + sanPham);
+        System.out.println("Giá: " + decimalFormat.format(gia) + " VNĐ");
+        System.out.println("Số lượng: " + soLuong);
+        System.out.println("Thành tiền: " + decimalFormat.format(thanhTien));
+        System.out.println("Giảm giá: " +  decimalFormat.format(giamThanhVien));
+        System.out.println("Tiền VAT: " +  decimalFormat.format(thanhTien * 8L / 100));
+        System.out.println("Tổng tiền thanh toán: " +  decimalFormat.format(tongTien) + " VNĐ");
+
+        scanner.close();
     }
 }
